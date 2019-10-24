@@ -58,24 +58,24 @@ print('...done.')
 
 print('Loading corpus trainers...')
 corpus_trainer = ChatterBotCorpusTrainer(ninefa_bot)
-print('Training...')
-corpus_trainer.train('chatterbot.corpus.english.greetings',
-                     'chatterbot.corpus.english.ai',
-                     'chatterbot.corpus.english.conversations',
-                     'chatterbot.corpus.english.emotion',
-                     'chatterbot.corpus.english.food',
-                     'chatterbot.corpus.english.gossip',
-                     'chatterbot.corpus.english.health',
-                     'chatterbot.corpus.english.history',
-                     'chatterbot.corpus.english.humor',
-                     'chatterbot.corpus.english.literature',
-                     'chatterbot.corpus.english.money',
-                     'chatterbot.corpus.english.movies',
-                     'chatterbot.corpus.english.politics',
-                     'chatterbot.corpus.english.psychology',
-                     'chatterbot.corpus.english.science',
-                     'chatterbot.corpus.english.sports',
-                     'chatterbot.corpus.english.trivia')
+# print('Training...')
+# corpus_trainer.train('chatterbot.corpus.english.greetings',
+#                      'chatterbot.corpus.english.ai',
+#                      'chatterbot.corpus.english.conversations',
+#                      'chatterbot.corpus.english.emotion',
+#                      'chatterbot.corpus.english.food',
+#                      'chatterbot.corpus.english.gossip',
+#                      'chatterbot.corpus.english.health',
+#                      'chatterbot.corpus.english.history',
+#                      'chatterbot.corpus.english.humor',
+#                      'chatterbot.corpus.english.literature',
+#                      'chatterbot.corpus.english.money',
+#                      'chatterbot.corpus.english.movies',
+#                      'chatterbot.corpus.english.politics',
+#                      'chatterbot.corpus.english.psychology',
+#                      'chatterbot.corpus.english.science',
+#                      'chatterbot.corpus.english.sports',
+#                      'chatterbot.corpus.english.trivia')
 print('...done.')
 
 def getchatbot():

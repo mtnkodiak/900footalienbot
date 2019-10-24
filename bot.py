@@ -8,11 +8,11 @@ from cogs.basic import Basic
 from cogs.greetings import Greetings
 from cogs.commenters import Commenters
 
-
 logging.basicConfig(level=logging.INFO)
 
-TOKEN = 'NjExMzI1NTE5ODA3NjQzNjQ4.XVSLug.VIETYJBIXNri9DaChHcXVSVaYBM'
-
+tokenfile = open(".auth", "r")
+TOKEN = tokenfile.readline()
+print('Obtained token: ', TOKEN)
 def get_prefix(client, message):
 
     prefixes = ['=', '==']    # sets the prefixes, u can keep it as an array of only 1 item if you need only one prefix
