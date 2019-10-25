@@ -1,7 +1,6 @@
 # Work with Python 3.6
 from discord.ext import commands
 from chatbot import getchatbot
-from lxml.html._diffcommand import description
 import logging
 import discord
 from cogs.basic import Basic
@@ -9,6 +8,7 @@ from cogs.greetings import Greetings
 from cogs.commenters import Commenters
 
 logging.basicConfig(level=logging.INFO)
+
 
 tokenfile = open(".auth", "r")
 TOKEN = tokenfile.readline()

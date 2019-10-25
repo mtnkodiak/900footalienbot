@@ -15,10 +15,10 @@ class Commenters(commands.Cog):
         if message.author.bot:
             return
         
-#         chance = random()
-#         if (chance < 0.90):
-#             print('Commenter decided not to comment.')
-#             return 
+        chance = random()
+        if (chance < 0.9):
+            print('Commenter decided not to comment.')
+            return 
         
         chatbot = getchatbot()
         print('Commenter is parsing the string: ', message.content)
