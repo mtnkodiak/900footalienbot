@@ -1,5 +1,4 @@
-from chatterbot import ChatBot, chatterbot, filters, comparisons, response_selection
-from chatterbot.trainers import ListTrainer
+from chatterbot import ChatBot, filters
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import UbuntuCorpusTrainer
 from chatterbot.comparisons import levenshtein_distance
