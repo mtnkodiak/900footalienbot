@@ -1,5 +1,7 @@
 from discord.ext import commands
+from discord.ext.commands import Cog
 from chatbot import getchatbot
+import discord
 from random import random
 
 
@@ -14,13 +16,12 @@ class Commenters(commands.Cog):
             return
         
         if message.content.startswith('-'):
-            print('Commenter detected a command.. ignoring.')
             return 
         
-        chance = random()
-        if (chance < 0.9):
-            print('Commenter decided not to comment.')
-            return 
+#         chance = random()
+#         if (chance < 0.90):
+#             print('Commenter decided not to comment.')
+#             return 
         
         chatbot = getchatbot()
         print('Commenter is parsing the string: ', message.content)

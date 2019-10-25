@@ -8,7 +8,7 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-ninefa_bot = ChatBot(name='NineFABot',
+ninefa_bot = ChatBot(name='NineFABot', 
                      read_only=False,
                      logic_adapters=[
                     {
@@ -50,11 +50,11 @@ ninefa_bot = ChatBot(name='NineFABot',
 #     list_trainer.train(item)
 # print('...done.')
 
-# print('Loading Ubuntu trainer...')
-# ubuntu_trainer = UbuntuCorpusTrainer(ninefa_bot)
+print('Loading Ubuntu trainer...')
+ubuntu_trainer = UbuntuCorpusTrainer(ninefa_bot)
 # print('Training...')
 # ubuntu_trainer.train()
-# print('...done.')
+print('...done.')
 
 print('Loading corpus trainers...')
 corpus_trainer = ChatterBotCorpusTrainer(ninefa_bot)

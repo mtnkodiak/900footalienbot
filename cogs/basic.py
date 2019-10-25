@@ -1,5 +1,6 @@
 import asyncio
 import discord
+import youtube_dl
 
 from datetime import datetime as d
 from games import eightball
