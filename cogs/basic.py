@@ -79,8 +79,8 @@ def setup(bot):
     # Note: The "setup" function has to be there in every cog file
     
     activity1 = discord.activity(type=3, name='bamboozled')
-     
+    
     bot.change_presence(activity=discord.Game(name="to the world's problems", type=3))
-    bot.change_presence(activity=activity1)
+#     bot.change_presence(activity=activity1)
 #     bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the world's problems"))
     return
