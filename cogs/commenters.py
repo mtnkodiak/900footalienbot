@@ -15,6 +15,9 @@ class Commenters(commands.Cog):
         if message.author.bot:
             return
         
+        if message.content.startswith('-'):
+            return 
+        
         chance = random()
         if (chance < 0.9):
             print('Commenter decided not to comment.')
