@@ -1,8 +1,8 @@
-from discord.ext import commands
-from discord.ext.commands import Cog
+
+
 from chatbot import getchatbot
-import discord
-from random import random
+from discord.ext import commands
+import random
 
 
 class Commenters(commands.Cog):
@@ -18,10 +18,10 @@ class Commenters(commands.Cog):
         if message.content.startswith('-'):
             return 
         
-#         chance = random()
-#         if (chance < 0.90):
-#             print('Commenter decided not to comment.')
-#             return 
+        chance = random()
+        if (chance < 0.90):
+            print('Commenter decided not to comment.')
+            return 
         
         chatbot = getchatbot()
         print('Commenter is parsing the string: ', message.content)

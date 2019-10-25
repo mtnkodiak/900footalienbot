@@ -1,6 +1,5 @@
 from discord.ext import commands
-from discord.ext.commands import Cog
-import discord
+
 
 class Greetings(commands.Cog):
     def __init__(self, bot):

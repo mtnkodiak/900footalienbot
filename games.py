@@ -7,6 +7,7 @@ Created on Sep 30, 2019
 # Import the modules
 import random
 
+
 def eightball():
     answers = random.randint(1,8)
     answertext=""

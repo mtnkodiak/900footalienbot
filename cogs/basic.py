@@ -1,12 +1,10 @@
-import asyncio
-import discord
-import youtube_dl
-
 from datetime import datetime as d
-from games import eightball
-from chatbot import getchatbot
+
+import discord
+
 from discord.ext import commands
-from discord.ext.commands import Cog
+from games import eightball
+
 
 # New - The Cog class must extend the commands.Cog class
 class Basic(commands.Cog):
