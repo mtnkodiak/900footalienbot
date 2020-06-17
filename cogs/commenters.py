@@ -1,10 +1,9 @@
-
+import discord
 
 from chatbot import getchatbot
 from discord.ext import commands
 import random
 from discord.ext.commands import bot
-import discord
 
 
 class Commenters(commands.Cog):
@@ -19,7 +18,7 @@ class Commenters(commands.Cog):
         
     @commands.Cog.listener()
     async def on_message(self, message):
-        print('message.author.display_name = ', message.author.display_name)
+        print("message.author.display_name: ", message.author.display_name)
 #        print('message.author.bot = ', message.author.bot)
         print('message content = ', message.content)
         
@@ -33,7 +32,7 @@ class Commenters(commands.Cog):
 #             print('Bot message, not groovy. Ignoring!')
 #             return
 #         
-        if message.content.startswith('-'):
+        if message.content.startswith('=') or message.content.startswith('-'):
             print('Ignoring Bot command.')
             return 
 
@@ -47,6 +46,12 @@ class Commenters(commands.Cog):
             
             return 
 
+        if (message.content.startswith('Why')):
+            print('Someone asked why!')
+            response = respondwhy()
+            print('I said', response)
+            return
+
         chance = random.random()
         if chance < 0.90:
             print('...but Commenter decided not to comment.')
@@ -59,6 +64,9 @@ class Commenters(commands.Cog):
         print('Commenter is sending the string: ', response)
         await message.channel.send(response)
            
+async def respondwhy():
+    response = ''
+    return response
 
 def replace_trash(unicode_string):
     for i in range(0, len(unicode_string)):

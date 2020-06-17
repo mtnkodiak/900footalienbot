@@ -14,11 +14,16 @@ ninefa_bot = ChatBot(name='NineFABot',
                         "import_path": "chatterbot.logic.BestMatch",
                         "statement_comparison_function": levenshtein_distance,
                         "response_selection_method": get_first_response
-                    }],             
-                    filters=[filters.get_recent_repeated_responses]
+                    }],
+                    filters=[filters.get_recent_repeated_responses],
+                     storage_adapter='chatterbot.storage.MongoDatabaseAdapter',
+                     database_uri='mongodb://localhost:27017/9fa-chatterbot'
+
                     )
 
-#                  logic_adapters=['chatterbot.logic.MathematicalEvaluation',
+
+
+# #                  logic_adapters=['chatterbot.logic.MathematicalEvaluation',
 #                                  'chatterbot.logic.BestMatch'],
 
 # small_talk = ['hi there!',
@@ -57,24 +62,24 @@ print('...done.')
 
 print('Loading corpus trainers...')
 corpus_trainer = ChatterBotCorpusTrainer(ninefa_bot)
-# print('Training...')
-# corpus_trainer.train('chatterbot.corpus.english.greetings',
-#                      'chatterbot.corpus.english.ai',
-#                      'chatterbot.corpus.english.conversations',
-#                      'chatterbot.corpus.english.emotion',
-#                      'chatterbot.corpus.english.food',
-#                      'chatterbot.corpus.english.gossip',
-#                      'chatterbot.corpus.english.health',
-#                      'chatterbot.corpus.english.history',
-#                      'chatterbot.corpus.english.humor',
-#                      'chatterbot.corpus.english.literature',
-#                      'chatterbot.corpus.english.money',
-#                      'chatterbot.corpus.english.movies',
-#                      'chatterbot.corpus.english.politics',
-#                      'chatterbot.corpus.english.psychology',
-#                      'chatterbot.corpus.english.science',
-#                      'chatterbot.corpus.english.sports',
-#                      'chatterbot.corpus.english.trivia')
+print('Training...')
+corpus_trainer.train('chatterbot.corpus.english.greetings',
+                     'chatterbot.corpus.english.ai',
+                     'chatterbot.corpus.english.conversations',
+                     'chatterbot.corpus.english.emotion',
+                     'chatterbot.corpus.english.food',
+                     'chatterbot.corpus.english.gossip',
+                     'chatterbot.corpus.english.health',
+                     'chatterbot.corpus.english.history',
+                     'chatterbot.corpus.english.humor',
+                     'chatterbot.corpus.english.literature',
+                     'chatterbot.corpus.english.money',
+                     'chatterbot.corpus.english.movies',
+                     'chatterbot.corpus.english.politics',
+                     'chatterbot.corpus.english.psychology',
+                     'chatterbot.corpus.english.science',
+                     'chatterbot.corpus.english.sports',
+                     'chatterbot.corpus.english.trivia')
 print('...done.')
 
 def getchatbot():

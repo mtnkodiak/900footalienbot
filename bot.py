@@ -1,4 +1,5 @@
 # Work with Python 3.6
+import discord
 from discord.ext import commands
 import logging
 from cogs.basic import Basic
@@ -8,7 +9,7 @@ from cogs.commenters import Commenters
 logging.basicConfig(level=logging.INFO)
 
 tokenfile = open(".auth", "r")
-TOKEN = tokenfile.readline()
+TOKEN = tokenfile.readline().strip()
 print('Obtained token: ', TOKEN)
 def get_prefix(client, message):
 
@@ -40,6 +41,11 @@ async def on_ready():
     bot.add_cog(Commenters(bot))
 #     for cog in cogs:
 #         bot.load_extension(cog)
+#    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the world's problems"))    
+#    activity = discord.(name="the world's problems")
+    activity = discord.Activity(type=discord.ActivityType.listening, name="the world's problems")
+    await bot.change_presence(status=discord.Status.idle, activity=activity)
+    
     return 
 
 cogs = ['cogs.basic', 'cogs.greetings', 'cogs.commenters']

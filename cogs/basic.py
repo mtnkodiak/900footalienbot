@@ -1,4 +1,5 @@
 from datetime import datetime as d
+from yt import YTDLSource
 
 import discord
 
@@ -12,6 +13,26 @@ class Basic(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
+    @commands.command(
+        name='ok',
+        description="Okay.  Okay.  Okay."
+    )
+    async def ok_command(self, ctx):
+        url = "https://youtu.be/oJ9AvIIJTrY"
+
+        channel = ctx.author.voice.channel
+        vc = await channel.connect()
+
+        server = ctx.message.guild
+        voice_channel = server.voice_client
+
+        async with ctx.typing():
+            player = await YTDLSource.from_url(url)
+            vc.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
+        await ctx.send('Now playing: {}'.format(player.title))
+        return
+
+
     # Define a new command
     @commands.command(
         name='ping',
@@ -74,13 +95,7 @@ class Basic(commands.Cog):
 
 
 def setup(bot):
-#     bot.add_cog(Basic(bot))
     # Adds the Basic commands to the bot
     # Note: The "setup" function has to be there in every cog file
     
-    activity1 = discord.activity(type=3, name='bamboozled')
-    
-    bot.change_presence(activity=discord.Game(name="to the world's problems", type=3))
-#     bot.change_presence(activity=activity1)
-#     bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the world's problems"))
     return
