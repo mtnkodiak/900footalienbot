@@ -1,5 +1,6 @@
 from datetime import datetime as d
 from yt import YTDLSource
+import random
 
 import discord
 
@@ -18,20 +19,49 @@ class Basic(commands.Cog):
         description="Okay."
     )
     async def ok_command(self, ctx):
-        url = "https://youtu.be/oJ9AvIIJTrY"
+        connected = ctx.author.voice
+        if connected:
+            try:
+                voice_client = await connected.channel.connect() # use the channel object you put into a variable
+            except:
+                print ("already connected, ok.")
+                server = ctx.author.guild
+                voice_client = server.voice_client
+            
+            mp3name = 'ok' + str(random.randrange(1,47)) + '.mp3'
 
-        channel = ctx.author.voice.channel
-        vc = await channel.connect()
+            audio_source = discord.FFmpegPCMAudio('static/'+mp3name)
+            if not voice_client.is_playing():
+                voice_client.play(audio_source, after=None)
 
-        server = ctx.message.guild
-        voice_channel = server.voice_client
+        #voice_client = get(ctx.bot.voice_clients, guild=ctx.guild)
+        
+        # channel = author.voice.channel
+        # vc = await channel.connect()
 
-        async with ctx.typing():
-            player = await YTDLSource.from_url(url)
-            vc.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-        await ctx.send('Now playing: {}'.format(player.title))
-        return
+       
+        #guild = ctx.guild
+        #server = ctx.message.guild
+        #voice_client = server.voice_client
 
+
+    # voiceChannel.join().then(connection => {
+    #   connection.voice.setSelfDeaf(true);
+    # });
+
+        # url = "https://youtu.be/oJ9AvIIJTrY"
+
+        # channel = ctx.author.voice.channel
+        # vc = await channel.connect()
+
+        # server = ctx.message.guild
+        # voice_channel = server.voice_client
+
+        # async with ctx.typing():
+        #     player = await YTDLSource.from_url(url)
+        #     vc.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
+        # await ctx.send('Now playing: {}'.format(player.title))
+        
 
     # Define a new command
     @commands.command(
