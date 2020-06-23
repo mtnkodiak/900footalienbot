@@ -48,7 +48,7 @@ class Commenters(commands.Cog):
 
         if (message.content.startswith('Why')):
             print('Someone asked why!')
-            response = respondwhy()
+            response = await respondwhy(message, cleanstr)
             print('I said', response)
             return
 
@@ -64,8 +64,15 @@ class Commenters(commands.Cog):
         print('Commenter is sending the string: ', response)
         await message.channel.send(response)
            
-async def respondwhy():
+async def respondwhy(message, cleanstr):
     response = ''
+    print('Respondwhy is ramping up...')
+    chatbot = getchatbot()
+    print('Respondwhy is parsing the string: ', cleanstr)
+    response = chatbot.get_response(cleanstr)
+    print('Respondwhy is sending the string: ', response)
+    await message.channel.send(response)
+ 
     return response
 
 def replace_trash(unicode_string):

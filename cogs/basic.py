@@ -15,7 +15,7 @@ class Basic(commands.Cog):
         
     @commands.command(
         name='ok',
-        description="Okay.  Okay.  Okay."
+        description="Okay."
     )
     async def ok_command(self, ctx):
         url = "https://youtu.be/oJ9AvIIJTrY"
