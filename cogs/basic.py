@@ -1,7 +1,7 @@
 from datetime import datetime as d
 from yt import YTDLSource
 import random
-
+import time
 import discord
 
 from discord.ext import commands
@@ -18,7 +18,7 @@ class Basic(commands.Cog):
         name='ok',
         description="Okay."
     )
-    async def ok_command(self, ctx):
+    async def ok_command(self, ctx, howmany = 1):
         connected = ctx.author.voice
         if connected:
             try:
@@ -28,12 +28,25 @@ class Basic(commands.Cog):
                 server = ctx.author.guild
                 voice_client = server.voice_client
             
-            mp3name = 'ok' + str(random.randrange(1,47)) + '.mp3'
+            print("howmany=" + str(howmany))
+            x = 0
 
-            audio_source = discord.FFmpegPCMAudio('static/'+mp3name)
-            if not voice_client.is_playing():
-                voice_client.play(audio_source, after=None)
+            if howmany > 10:
+                await ctx.send('Too many OKs!  (max 10)')
+                return
 
+            while x < howmany:
+
+                mp3name = 'ok' + str(random.randrange(1,47)) + '.mp3'
+
+                print('playing:', mp3name)
+                audio_source = discord.FFmpegPCMAudio('static/'+mp3name)
+                if not voice_client.is_playing():
+                    voice_client.play(audio_source, after=None)
+                
+                x = x + 1
+
+                time.sleep(1)
         #voice_client = get(ctx.bot.voice_clients, guild=ctx.guild)
         
         # channel = author.voice.channel

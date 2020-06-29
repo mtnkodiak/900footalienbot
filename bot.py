@@ -39,10 +39,7 @@ async def on_ready():
     bot.add_cog(Basic(bot))
     bot.add_cog(Greetings(bot))
     bot.add_cog(Commenters(bot))
-#     for cog in cogs:
-#         bot.load_extension(cog)
-#    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="the world's problems"))    
-#    activity = discord.(name="the world's problems")
+
     activity = discord.Activity(type=discord.ActivityType.listening, name="the world's problems")
     await bot.change_presence(status=discord.Status.idle, activity=activity)
     
